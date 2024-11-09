@@ -1,0 +1,38 @@
+.contact {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  padding-top: 5rem;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.contact form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: auto;
+    padding-bottom: 5rem;
+  }
+  
+  .contact input, .contact textarea {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .contact button {
+    padding: 10px 20px;
+    background-color: #6e8efb;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  

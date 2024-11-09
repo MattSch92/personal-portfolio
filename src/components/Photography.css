@@ -1,0 +1,62 @@
+/* Photography.css */
+
+.photography {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #1e1e1e;
+}
+
+.photography h2 {
+  color: white;
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+
+.photography h3 {
+  color: white;
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+
+.slick-slide {
+  opacity: 0.3; /* Make side images slightly transparent */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slick-center {
+  transform: scale(1.1) rotate(0deg); /* Enlarge the center slide */
+  opacity: 1; /* Make center image fully opaque */
+}
+
+.slick-active.slick-center ~ .slick-active:first-child .photo-card img {
+  transform: rotate(-80deg); /* Tilt previous images to raise left side */
+}
+
+.slick-active.slick-center ~ .slick-active:last-child .photo-card img {
+  transform: rotate(80deg); /* Tilt next images to raise right side */
+}
+
+.photo-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 15px;
+}
+
+.photo-card img {
+  width: 600px;           
+  height: 400px;        
+  object-fit: cover;      
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 24px;
+  color: #333;
+  z-index: 1;
+}
