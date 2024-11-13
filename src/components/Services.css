@@ -7,7 +7,7 @@
   font-size: 1.3rem;
   padding: 60px 20px;
   text-align: center;
-  overflow: hidden; /* Hide overflow to keep scrolling effect inside the container */
+  overflow: hidden; 
 }
 
 .service-ticker {
@@ -24,7 +24,7 @@
 .service-list {
   display: inline-flex;
   gap: 2rem;
-  animation: scroll 60s linear infinite; /* Adjust duration for speed */
+  animation: scroll 60s linear infinite; 
 }
 
 .service-item {
@@ -39,12 +39,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Keyframe for seamless scrolling animation */
+
 @keyframes scroll {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%); /* Moves entire list left by half its width */
+    transform: translateX(-50%); 
   }
 }

@@ -1,11 +1,11 @@
 // MapGallery.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import './MapGallery.css';
 import { Typewriter } from 'react-simple-typewriter';
 
-// Import your photos
+// photo import
 import photo1 from './photo1.jpg';
 import photo2 from './photo2.jpg';
 import photo3 from './photo3.jpg';
@@ -30,14 +30,14 @@ import photo21 from './photo21.jpg';
 
 import customMarkerIcon from './pin.png';
 
-// Custom icon for map markers
+// map pin icon
 const icon = new L.Icon({
   iconUrl: customMarkerIcon,
   iconSize: [30, 45],
   iconAnchor: [15, 45]
 });
 
-// Photo data array with coordinates
+// photo data arraw with coordinates
 const photos = [
   { src: photo1, alt: 'Photo 1', coordinates: [37.8278, -122.4995] }, // Golden Gate, CA
   { src: photo2, alt: 'Photo 2', coordinates: [48.4954, -121.2049] }, // Hidden Lake, Cascades, WA
@@ -65,6 +65,24 @@ const photos = [
 function MapGallery() {
   const [hoveredPhoto, setHoveredPhoto] = useState(null);
 
+  const handleTouchOutside = (event) => {
+    if (!event.target.closest('.hover-preview') && !event.target.closest('.leaflet-marker-icon')) {
+      setHoveredPhoto(null);
+    }
+  };
+
+  useEffect(() => {
+    // handles touch on mobile
+    if (hoveredPhoto) {
+      document.addEventListener('touchstart', handleTouchOutside);
+    } else {
+      document.removeEventListener('touchstart', handleTouchOutside);
+    }
+    return () => {
+      document.removeEventListener('touchstart', handleTouchOutside);
+    };
+  }, [hoveredPhoto]);
+
   return (
     <section className="map-gallery">
       <h2>
@@ -84,7 +102,7 @@ function MapGallery() {
             url={`https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXNjaDkyIiwiYSI6ImNtMTl1anZhNjB2bGMyam9mZGRkMGdoYXEifQ.PbaVJiM6i57EiJw5ujYruw`}
             attribution='&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> contributors'/>
 
-          {photos.map((photo, index) => (
+{photos.map((photo, index) => (
             <Marker
               key={index}
               position={photo.coordinates}
@@ -93,19 +111,14 @@ function MapGallery() {
                 mouseover: () => setHoveredPhoto(photo),
                 mouseout: () => setHoveredPhoto(null),
               }}
-            >
-              <Popup>
-                <img src={photo.src} alt={photo.alt} width="200" />
-              </Popup>
-            </Marker>
+            />
           ))}
         </MapContainer>
 
-        {/* Image preview on hover */}
         {hoveredPhoto && (
           <div className="hover-preview">
             <img src={hoveredPhoto.src} alt={hoveredPhoto.alt} />
-            <p>{hoveredPhoto.alt}</p>
+            {/* <p>{hoveredPhoto.alt}</p> */}
           </div>
         )}
       </div>

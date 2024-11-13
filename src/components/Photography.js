@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Typewriter } from 'react-simple-typewriter';
 
-// Import images
+// import photos
 import photo1 from './photo1.jpg';
 import photo2 from './photo2.jpg';
 import photo3 from './photo3.jpg';
@@ -27,9 +27,9 @@ function Photography() {
   // slick settings
   const settings = {
     centerMode: true,
-    centerPadding: '5px', // adjust padding to control side image visibility
+    centerPadding: '5px', 
     slidesToShow: 3,       
-    focusOnSelect: true,   // click to bring an image to the center
+    focusOnSelect: true,   
     autoplay: true,
     autoplaySpeed: 6000,
     arrows: true,
@@ -38,7 +38,7 @@ function Photography() {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          centerPadding: '40px',
+          centerPadding: '0px',
         }
       }
     ]

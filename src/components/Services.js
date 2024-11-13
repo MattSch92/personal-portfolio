@@ -19,7 +19,6 @@ function Services() {
           {services.map((service, index) => (
             <div className="service-item" key={index}>{service}</div>
           ))}
-          {/* Duplicate the items to create a seamless loop */}
           {services.map((service, index) => (
             <div className="service-item" key={index + services.length}>{service}</div>
           ))}

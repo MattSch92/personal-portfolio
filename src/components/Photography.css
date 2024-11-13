@@ -19,21 +19,21 @@
 }
 
 .slick-slide {
-  opacity: 0.3; /* Make side images slightly transparent */
+  opacity: 0.3; 
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .slick-center {
-  transform: scale(1.1) rotate(0deg); /* Enlarge the center slide */
-  opacity: 1; /* Make center image fully opaque */
+  transform: scale(1.1) rotate(0deg); 
+  opacity: 1; 
 }
 
 .slick-active.slick-center ~ .slick-active:first-child .photo-card img {
-  transform: rotate(-80deg); /* Tilt previous images to raise left side */
+  transform: rotate(-80deg); /* raise left side */
 }
 
 .slick-active.slick-center ~ .slick-active:last-child .photo-card img {
-  transform: rotate(80deg); /* Tilt next images to raise right side */
+  transform: rotate(80deg); /* raise right side */
 }
 
 .photo-card {
@@ -51,7 +51,7 @@
   object-fit: cover;      
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease; /* Smooth transition for rotation */
+  transition: transform 0.3s ease; 
 }
 
 .slick-prev,

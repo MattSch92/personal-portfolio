@@ -28,9 +28,7 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 350px;
-    border-radius: 8px;
-    background-color: none;
+    width: 20vw;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 10px;
     z-index: 1000;
@@ -38,16 +36,21 @@
   
   .hover-preview img {
     width: 100%;
-    max-height: 400px;
+    max-height: 45vh;
     height: auto;
     display: block;
     border-radius: 8px;
   }
   
-  .hover-preview p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #555;
-    text-align: center;
-  }
+  @media (max-width: 768px) {
+    .hover-preview {
+      width: 80vw; 
+      top: 10px;
+      left: 10px;
+      padding: 5px; 
+    }
   
+    .hover-preview img {
+      max-height: 60vh; 
+    }
+  }
